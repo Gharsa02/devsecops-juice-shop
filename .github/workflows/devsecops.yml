@@ -14,11 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Gitleaks
+      - name: Gitleaks (avec allowlist documentee)
         run: |
           mkdir -p reports
-          docker run --rm -v "$PWD/app:/repo" -v "$PWD/reports:/out" \
-            zricethezav/gitleaks:latest detect --source /repo --no-git \
+          docker run --rm -v "$PWD:/repo" -v "$PWD/reports:/out" \
+            zricethezav/gitleaks:latest detect --source /repo/app --no-git \
+            --config /repo/.gitleaks.toml \
             --report-format json --report-path /out/gitleaks.json --exit-code 1
       - uses: actions/upload-artifact@v4
         if: always()

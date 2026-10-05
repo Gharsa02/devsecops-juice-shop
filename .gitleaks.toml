@@ -1,0 +1,17 @@
+﻿title = "Config Gitleaks - Juice Shop (application volontairement vulnerable)"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Faux secrets documentes: fichiers de test et donnees de challenges"
+paths = [
+  '''app/test/''',
+  '''app/frontend/src/app/.*\.spec\.ts''',
+  '''app/data/static/users\.yml''',
+  '''app/infrastructure/terraform/''',
+  '''app/terraform/''',
+  '''app/lib/insecurity\.ts''',
+  '''app/routes/login\.ts''',
+  '''app/frontend/src/app/faucet/'''
+]

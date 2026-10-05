@@ -1,0 +1,15 @@
+# Exemptions documentees - Juice Shop (application d'entrainement, jamais deployee en production)
+# Chaque entree: justification. Dans un projet reel: ajouter responsable + date d'expiration.
+
+# crypto-js 3.3.0 - version vulnerable volontaire (defi Juice Shop)
+CVE-2023-46233
+CVE-2026-71851
+
+# jsonwebtoken 0.1.0 / 0.4.0 - vulnerabilite volontaire (defi forged JWT)
+CVE-2015-9235
+
+# lodash 2.4.2 - dependance ancienne, mise a jour majeure cassante
+CVE-2019-10744
+
+# tar 6.2.1 - a corriger (voir PR de correction), exemption temporaire
+CVE-2026-59873

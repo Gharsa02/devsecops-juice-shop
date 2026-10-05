@@ -73,3 +73,20 @@ jobs:
         with:
           name: trivy-image-report
           path: reports/
+
+  sast:
+    name: sast (Semgrep)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Semgrep OWASP Top 10
+        run: |
+          mkdir -p reports
+          docker run --rm -v "$PWD/app:/src" -v "$PWD/reports:/out" \
+            semgrep/semgrep:latest semgrep scan --config p/owasp-top-ten \
+            --severity ERROR --json --output /out/semgrep.json /src || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: semgrep-report
+          path: reports/

@@ -91,6 +91,66 @@ jobs:
           name: semgrep-report
           path: reports/
 
+  iac_checkov:
+    name: iac_checkov (Checkov)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkov - Dockerfile de l'application (non bloquant)
+        run: |
+          mkdir -p reports/checkov-dockerfile
+          docker run --rm -v "$PWD:/src" -v "$PWD/reports:/out" \
+            bridgecrew/checkov:latest -d /src/app --framework dockerfile \
+            --output cli --output json \
+            --output-file-path /out/checkov-dockerfile \
+            --soft-fail
+      - name: Checkov - workflows GitHub Actions du projet (non bloquant)
+        run: |
+          mkdir -p reports/checkov-workflows
+          docker run --rm -v "$PWD:/src" -v "$PWD/reports:/out" \
+            bridgecrew/checkov:latest -d /src/.github --framework github_actions \
+            --output cli --output json \
+            --output-file-path /out/checkov-workflows \
+            --soft-fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: checkov-report
+          path: reports/
+
+  tests:
+    name: tests (fumee applicatifs)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Demarrer l'application
+        run: |
+          docker run -d --name juice -p 3000:3000 bkimminich/juice-shop:latest
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 > /dev/null && break
+            sleep 3
+          done
+      - name: Tests de fumee
+        run: |
+          mkdir -p reports
+          {
+            echo "Page d'accueil :"
+            curl -sf -o /dev/null -w "%{http_code}\n" http://localhost:3000
+            echo "Version de l'application :"
+            curl -sf http://localhost:3000/rest/admin/application-version
+            echo
+            echo "API des challenges :"
+            curl -sf -o /dev/null -w "%{http_code}\n" http://localhost:3000/api/Challenges
+          } | tee reports/smoke-tests.txt
+      - name: Logs de l'application si echec
+        if: failure()
+        run: docker logs juice
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tests-report
+          path: reports/
+
   dast:
     name: dast (OWASP ZAP)
     runs-on: ubuntu-latest
@@ -116,10 +176,46 @@ jobs:
           name: zap-report
           path: reports/
 
+  deploy:
+    name: deploy (GHCR + staging)
+    runs-on: ubuntu-latest
+    needs: [secrets_scan, scan_dependencies, docker_scan, sast, iac_checkov, tests, dast]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Connexion au registre GHCR
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTOR: ${{ github.actor }}
+        run: echo "$TOKEN" | docker login ghcr.io -u "$ACTOR" --password-stdin
+      - name: Publier l'image validee
+        env:
+          SHA: ${{ github.sha }}
+        run: |
+          OWNER="${GITHUB_REPOSITORY_OWNER,,}"
+          IMG="ghcr.io/$OWNER/juice-shop"
+          docker pull bkimminich/juice-shop:latest
+          docker tag bkimminich/juice-shop:latest "$IMG:$SHA"
+          docker tag bkimminich/juice-shop:latest "$IMG:staging"
+          docker push "$IMG:$SHA"
+          docker push "$IMG:staging"
+      - name: Deployer en staging et verifier
+        run: |
+          OWNER="${GITHUB_REPOSITORY_OWNER,,}"
+          docker run -d --name staging -p 3000:3000 "ghcr.io/$OWNER/juice-shop:staging"
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3000 > /dev/null && { echo "Staging operationnel"; exit 0; }
+            sleep 3
+          done
+          docker logs staging
+          exit 1
+
   notify:
     name: notify (Discord)
     runs-on: ubuntu-latest
-    needs: [secrets_scan, scan_dependencies, docker_scan, sast, dast]
+    needs: [secrets_scan, scan_dependencies, docker_scan, sast, iac_checkov, tests, dast, deploy]
     if: always()
     steps:
       - name: Notification Discord
@@ -129,7 +225,10 @@ jobs:
           R_DEPS: ${{ needs.scan_dependencies.result }}
           R_IMAGE: ${{ needs.docker_scan.result }}
           R_SAST: ${{ needs.sast.result }}
+          R_IAC: ${{ needs.iac_checkov.result }}
+          R_TESTS: ${{ needs.tests.result }}
           R_DAST: ${{ needs.dast.result }}
+          R_DEPLOY: ${{ needs.deploy.result }}
           ACTOR: ${{ github.actor }}
           REPO: ${{ github.repository }}
           SHA: ${{ github.sha }}
@@ -139,13 +238,19 @@ jobs:
             echo "DISCORD_WEBHOOK_URL absent : notification ignoree"
             exit 0
           fi
-          if [ "$R_SECRETS" = success ] && [ "$R_DEPS" = success ] && [ "$R_IMAGE" = success ] && [ "$R_SAST" = success ] && [ "$R_DAST" = success ]; then
+          OK=1
+          for r in "$R_SECRETS" "$R_DEPS" "$R_IMAGE" "$R_SAST" "$R_IAC" "$R_TESTS" "$R_DAST"; do
+            [ "$r" = success ] || OK=0
+          done
+          # deploy est ignore (skipped) sur les pull requests
+          [ "$R_DEPLOY" = success ] || [ "$R_DEPLOY" = skipped ] || OK=0
+          if [ "$OK" = 1 ]; then
             TITLE="Pipeline DevSecOps : SUCCES"; COLOR=3066993
           else
             TITLE="Pipeline DevSecOps : ECHEC"; COLOR=15158332
           fi
-          DESC=$(printf 'Depot : %s\nAuteur : %s\nCommit : %s\n\nGitleaks : %s\nTrivy dependances : %s\nTrivy image : %s\nSemgrep : %s\nZAP : %s\n\n%s' \
-            "$REPO" "$ACTOR" "${SHA:0:7}" "$R_SECRETS" "$R_DEPS" "$R_IMAGE" "$R_SAST" "$R_DAST" "$RUN_URL")
+          DESC=$(printf 'Depot : %s\nAuteur : %s\nCommit : %s\n\nGitleaks : %s\nTrivy dependances : %s\nTrivy image : %s\nSemgrep : %s\nCheckov : %s\nTests : %s\nZAP : %s\nDeploy : %s\n\n%s' \
+            "$REPO" "$ACTOR" "${SHA:0:7}" "$R_SECRETS" "$R_DEPS" "$R_IMAGE" "$R_SAST" "$R_IAC" "$R_TESTS" "$R_DAST" "$R_DEPLOY" "$RUN_URL")
           PAYLOAD=$(jq -n --arg t "$TITLE" --arg d "$DESC" --argjson c "$COLOR" \
             '{embeds:[{title:$t,description:$d,color:$c}]}')
           curl -sf -H "Content-Type: application/json" -d "$PAYLOAD" "$WEBHOOK"

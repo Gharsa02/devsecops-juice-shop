@@ -115,3 +115,37 @@ jobs:
         with:
           name: zap-report
           path: reports/
+
+  notify:
+    name: notify (Discord)
+    runs-on: ubuntu-latest
+    needs: [secrets_scan, scan_dependencies, docker_scan, sast, dast]
+    if: always()
+    steps:
+      - name: Notification Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          R_SECRETS: ${{ needs.secrets_scan.result }}
+          R_DEPS: ${{ needs.scan_dependencies.result }}
+          R_IMAGE: ${{ needs.docker_scan.result }}
+          R_SAST: ${{ needs.sast.result }}
+          R_DAST: ${{ needs.dast.result }}
+          ACTOR: ${{ github.actor }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$WEBHOOK" ]; then
+            echo "DISCORD_WEBHOOK_URL absent : notification ignoree"
+            exit 0
+          fi
+          if [ "$R_SECRETS" = success ] && [ "$R_DEPS" = success ] && [ "$R_IMAGE" = success ] && [ "$R_SAST" = success ] && [ "$R_DAST" = success ]; then
+            TITLE="Pipeline DevSecOps : SUCCES"; COLOR=3066993
+          else
+            TITLE="Pipeline DevSecOps : ECHEC"; COLOR=15158332
+          fi
+          DESC=$(printf 'Depot : %s\nAuteur : %s\nCommit : %s\n\nGitleaks : %s\nTrivy dependances : %s\nTrivy image : %s\nSemgrep : %s\nZAP : %s\n\n%s' \
+            "$REPO" "$ACTOR" "${SHA:0:7}" "$R_SECRETS" "$R_DEPS" "$R_IMAGE" "$R_SAST" "$R_DAST" "$RUN_URL")
+          PAYLOAD=$(jq -n --arg t "$TITLE" --arg d "$DESC" --argjson c "$COLOR" \
+            '{embeds:[{title:$t,description:$d,color:$c}]}')
+          curl -sf -H "Content-Type: application/json" -d "$PAYLOAD" "$WEBHOOK"

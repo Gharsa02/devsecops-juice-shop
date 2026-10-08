@@ -1,4 +1,4 @@
-name: DevSecOps Pipeline
+﻿name: DevSecOps Pipeline
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
           mkdir -p reports
           docker run --rm -v "$PWD/app:/src" -v "$PWD/reports:/out" \
             -v "$PWD/.trivyignore:/.trivyignore" \
-            aquasec/trivy:latest fs /src --scanners vuln \
+            aquasec/trivy:0.75.0 fs /src --scanners vuln \
             --severity CRITICAL --ignore-unfixed --exit-code 1 \
             --ignorefile /.trivyignore \
             --format json --output /out/trivy-fs.json
@@ -63,7 +63,7 @@ jobs:
           mkdir -p reports
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$PWD/reports:/out" -v "$PWD/.trivyignore:/.trivyignore" \
-            aquasec/trivy:latest image \
+            aquasec/trivy:0.75.0 image \
             --severity CRITICAL --ignore-unfixed --exit-code 1 \
             --ignorefile /.trivyignore \
             --format json --output /out/trivy-image.json \

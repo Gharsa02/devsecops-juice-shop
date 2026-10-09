@@ -1,0 +1,496 @@
+github_actions scan results:
+
+Passed checks: 164, Failed checks: 0, Skipped checks: 0
+
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(secrets_scan)
+	File: /workflows/devsecops.yml:13-31
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(scan_dependencies)
+	File: /workflows/devsecops.yml:31-55
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(docker_scan)
+	File: /workflows/devsecops.yml:55-78
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(sast)
+	File: /workflows/devsecops.yml:78-95
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(iac_checkov)
+	File: /workflows/devsecops.yml:95-122
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(tests)
+	File: /workflows/devsecops.yml:122-155
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(dast)
+	File: /workflows/devsecops.yml:155-180
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(deploy)
+	File: /workflows/devsecops.yml:180-216
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(notify)
+	File: /workflows/devsecops.yml:216-257
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(secrets_scan)
+	File: /workflows/devsecops.yml:13-31
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(scan_dependencies)
+	File: /workflows/devsecops.yml:31-55
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(docker_scan)
+	File: /workflows/devsecops.yml:55-78
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(sast)
+	File: /workflows/devsecops.yml:78-95
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(iac_checkov)
+	File: /workflows/devsecops.yml:95-122
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(tests)
+	File: /workflows/devsecops.yml:122-155
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(dast)
+	File: /workflows/devsecops.yml:155-180
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(deploy)
+	File: /workflows/devsecops.yml:180-216
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(notify)
+	File: /workflows/devsecops.yml:216-257
+Check: CKV_GHA_5: "Found artifact build without evidence of cosign sign execution in pipeline"
+	PASSED for resource: jobs
+	File: /workflows/devsecops.yml:12-257
+Check: CKV_GHA_6: "Found artifact build without evidence of cosign sbom attestation in pipeline"
+	PASSED for resource: jobs
+	File: /workflows/devsecops.yml:12-257
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(secrets_scan)
+	File: /workflows/devsecops.yml:13-31
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(scan_dependencies)
+	File: /workflows/devsecops.yml:31-55
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(docker_scan)
+	File: /workflows/devsecops.yml:55-78
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(sast)
+	File: /workflows/devsecops.yml:78-95
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(iac_checkov)
+	File: /workflows/devsecops.yml:95-122
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(tests)
+	File: /workflows/devsecops.yml:122-155
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(dast)
+	File: /workflows/devsecops.yml:155-180
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(deploy)
+	File: /workflows/devsecops.yml:180-216
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(notify)
+	File: /workflows/devsecops.yml:216-257
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(secrets_scan)
+	File: /workflows/devsecops.yml:13-31
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(scan_dependencies)
+	File: /workflows/devsecops.yml:31-55
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(docker_scan)
+	File: /workflows/devsecops.yml:55-78
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(sast)
+	File: /workflows/devsecops.yml:78-95
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(iac_checkov)
+	File: /workflows/devsecops.yml:95-122
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(tests)
+	File: /workflows/devsecops.yml:122-155
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(dast)
+	File: /workflows/devsecops.yml:155-180
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(deploy)
+	File: /workflows/devsecops.yml:180-216
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(notify)
+	File: /workflows/devsecops.yml:216-257
+Check: CKV_GHA_7: "The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. "
+	PASSED for resource: on(DevSecOps Pipeline)
+	File: /workflows/devsecops.yml:4-9
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(secrets_scan).steps[1]
+	File: /workflows/devsecops.yml:16-18
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(secrets_scan).steps[2](Gitleaks (avec allowlist documentee))
+	File: /workflows/devsecops.yml:17-25
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(secrets_scan).steps[3]
+	File: /workflows/devsecops.yml:24-31
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(scan_dependencies).steps[1]
+	File: /workflows/devsecops.yml:34-36
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(scan_dependencies).steps[2](Generer le package-lock)
+	File: /workflows/devsecops.yml:35-40
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(scan_dependencies).steps[3](Trivy fs - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:39-49
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(scan_dependencies).steps[4]
+	File: /workflows/devsecops.yml:48-55
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(docker_scan).steps[1]
+	File: /workflows/devsecops.yml:58-60
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(docker_scan).steps[2](Pull de l'image)
+	File: /workflows/devsecops.yml:59-62
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(docker_scan).steps[3](Trivy image - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:61-72
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(docker_scan).steps[4]
+	File: /workflows/devsecops.yml:71-78
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(sast).steps[1]
+	File: /workflows/devsecops.yml:81-83
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(sast).steps[2](Semgrep OWASP Top 10)
+	File: /workflows/devsecops.yml:82-89
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(sast).steps[3]
+	File: /workflows/devsecops.yml:88-95
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(iac_checkov).steps[1]
+	File: /workflows/devsecops.yml:98-100
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(iac_checkov).steps[2](Checkov - Dockerfile de l'application (non bloquant))
+	File: /workflows/devsecops.yml:99-108
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(iac_checkov).steps[3](Checkov - workflows GitHub Actions du projet (non bloquant))
+	File: /workflows/devsecops.yml:107-116
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(iac_checkov).steps[4]
+	File: /workflows/devsecops.yml:115-122
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(tests).steps[1]
+	File: /workflows/devsecops.yml:125-127
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(tests).steps[2](Demarrer l'application)
+	File: /workflows/devsecops.yml:126-134
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(tests).steps[3](Tests de fumee)
+	File: /workflows/devsecops.yml:133-146
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(tests).steps[4](Logs de l'application si echec)
+	File: /workflows/devsecops.yml:145-149
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(tests).steps[5]
+	File: /workflows/devsecops.yml:148-155
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(dast).steps[1]
+	File: /workflows/devsecops.yml:158-160
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(dast).steps[2](Lancer Juice Shop (staging))
+	File: /workflows/devsecops.yml:159-167
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(dast).steps[3](ZAP baseline scan)
+	File: /workflows/devsecops.yml:166-174
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(dast).steps[4]
+	File: /workflows/devsecops.yml:173-180
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(deploy).steps[1](Connexion au registre GHCR)
+	File: /workflows/devsecops.yml:188-194
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(deploy).steps[2](Publier l'image validee)
+	File: /workflows/devsecops.yml:193-205
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(deploy).steps[3](Deployer en staging et verifier)
+	File: /workflows/devsecops.yml:204-216
+Check: CKV_GHA_2: "Ensure run commands are not vulnerable to shell injection"
+	PASSED for resource: jobs(notify).steps[1](Notification Discord)
+	File: /workflows/devsecops.yml:221-257
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(secrets_scan).steps[1]
+	File: /workflows/devsecops.yml:16-18
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(secrets_scan).steps[2](Gitleaks (avec allowlist documentee))
+	File: /workflows/devsecops.yml:17-25
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(secrets_scan).steps[3]
+	File: /workflows/devsecops.yml:24-31
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(scan_dependencies).steps[1]
+	File: /workflows/devsecops.yml:34-36
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(scan_dependencies).steps[2](Generer le package-lock)
+	File: /workflows/devsecops.yml:35-40
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(scan_dependencies).steps[3](Trivy fs - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:39-49
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(scan_dependencies).steps[4]
+	File: /workflows/devsecops.yml:48-55
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(docker_scan).steps[1]
+	File: /workflows/devsecops.yml:58-60
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(docker_scan).steps[2](Pull de l'image)
+	File: /workflows/devsecops.yml:59-62
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(docker_scan).steps[3](Trivy image - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:61-72
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(docker_scan).steps[4]
+	File: /workflows/devsecops.yml:71-78
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(sast).steps[1]
+	File: /workflows/devsecops.yml:81-83
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(sast).steps[2](Semgrep OWASP Top 10)
+	File: /workflows/devsecops.yml:82-89
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(sast).steps[3]
+	File: /workflows/devsecops.yml:88-95
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(iac_checkov).steps[1]
+	File: /workflows/devsecops.yml:98-100
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(iac_checkov).steps[2](Checkov - Dockerfile de l'application (non bloquant))
+	File: /workflows/devsecops.yml:99-108
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(iac_checkov).steps[3](Checkov - workflows GitHub Actions du projet (non bloquant))
+	File: /workflows/devsecops.yml:107-116
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(iac_checkov).steps[4]
+	File: /workflows/devsecops.yml:115-122
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(tests).steps[1]
+	File: /workflows/devsecops.yml:125-127
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(tests).steps[2](Demarrer l'application)
+	File: /workflows/devsecops.yml:126-134
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(tests).steps[3](Tests de fumee)
+	File: /workflows/devsecops.yml:133-146
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(tests).steps[4](Logs de l'application si echec)
+	File: /workflows/devsecops.yml:145-149
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(tests).steps[5]
+	File: /workflows/devsecops.yml:148-155
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(dast).steps[1]
+	File: /workflows/devsecops.yml:158-160
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(dast).steps[2](Lancer Juice Shop (staging))
+	File: /workflows/devsecops.yml:159-167
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(dast).steps[3](ZAP baseline scan)
+	File: /workflows/devsecops.yml:166-174
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(dast).steps[4]
+	File: /workflows/devsecops.yml:173-180
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(deploy).steps[1](Connexion au registre GHCR)
+	File: /workflows/devsecops.yml:188-194
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(deploy).steps[2](Publier l'image validee)
+	File: /workflows/devsecops.yml:193-205
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(deploy).steps[3](Deployer en staging et verifier)
+	File: /workflows/devsecops.yml:204-216
+Check: CKV_GHA_3: "Suspicious use of curl with secrets"
+	PASSED for resource: jobs(notify).steps[1](Notification Discord)
+	File: /workflows/devsecops.yml:221-257
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(secrets_scan).steps[1]
+	File: /workflows/devsecops.yml:16-18
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(secrets_scan).steps[2](Gitleaks (avec allowlist documentee))
+	File: /workflows/devsecops.yml:17-25
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(secrets_scan).steps[3]
+	File: /workflows/devsecops.yml:24-31
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(scan_dependencies).steps[1]
+	File: /workflows/devsecops.yml:34-36
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(scan_dependencies).steps[2](Generer le package-lock)
+	File: /workflows/devsecops.yml:35-40
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(scan_dependencies).steps[3](Trivy fs - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:39-49
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(scan_dependencies).steps[4]
+	File: /workflows/devsecops.yml:48-55
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(docker_scan).steps[1]
+	File: /workflows/devsecops.yml:58-60
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(docker_scan).steps[2](Pull de l'image)
+	File: /workflows/devsecops.yml:59-62
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(docker_scan).steps[3](Trivy image - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:61-72
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(docker_scan).steps[4]
+	File: /workflows/devsecops.yml:71-78
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(sast).steps[1]
+	File: /workflows/devsecops.yml:81-83
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(sast).steps[2](Semgrep OWASP Top 10)
+	File: /workflows/devsecops.yml:82-89
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(sast).steps[3]
+	File: /workflows/devsecops.yml:88-95
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(iac_checkov).steps[1]
+	File: /workflows/devsecops.yml:98-100
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(iac_checkov).steps[2](Checkov - Dockerfile de l'application (non bloquant))
+	File: /workflows/devsecops.yml:99-108
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(iac_checkov).steps[3](Checkov - workflows GitHub Actions du projet (non bloquant))
+	File: /workflows/devsecops.yml:107-116
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(iac_checkov).steps[4]
+	File: /workflows/devsecops.yml:115-122
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(tests).steps[1]
+	File: /workflows/devsecops.yml:125-127
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(tests).steps[2](Demarrer l'application)
+	File: /workflows/devsecops.yml:126-134
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(tests).steps[3](Tests de fumee)
+	File: /workflows/devsecops.yml:133-146
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(tests).steps[4](Logs de l'application si echec)
+	File: /workflows/devsecops.yml:145-149
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(tests).steps[5]
+	File: /workflows/devsecops.yml:148-155
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(dast).steps[1]
+	File: /workflows/devsecops.yml:158-160
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(dast).steps[2](Lancer Juice Shop (staging))
+	File: /workflows/devsecops.yml:159-167
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(dast).steps[3](ZAP baseline scan)
+	File: /workflows/devsecops.yml:166-174
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(dast).steps[4]
+	File: /workflows/devsecops.yml:173-180
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(deploy).steps[1](Connexion au registre GHCR)
+	File: /workflows/devsecops.yml:188-194
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(deploy).steps[2](Publier l'image validee)
+	File: /workflows/devsecops.yml:193-205
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(deploy).steps[3](Deployer en staging et verifier)
+	File: /workflows/devsecops.yml:204-216
+Check: CKV_GHA_4: "Suspicious use of netcat with IP address"
+	PASSED for resource: jobs(notify).steps[1](Notification Discord)
+	File: /workflows/devsecops.yml:221-257
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(secrets_scan).steps[1]
+	File: /workflows/devsecops.yml:16-18
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(secrets_scan).steps[2](Gitleaks (avec allowlist documentee))
+	File: /workflows/devsecops.yml:17-25
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(secrets_scan).steps[3]
+	File: /workflows/devsecops.yml:24-31
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(scan_dependencies).steps[1]
+	File: /workflows/devsecops.yml:34-36
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(scan_dependencies).steps[2](Generer le package-lock)
+	File: /workflows/devsecops.yml:35-40
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(scan_dependencies).steps[3](Trivy fs - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:39-49
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(scan_dependencies).steps[4]
+	File: /workflows/devsecops.yml:48-55
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(docker_scan).steps[1]
+	File: /workflows/devsecops.yml:58-60
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(docker_scan).steps[2](Pull de l'image)
+	File: /workflows/devsecops.yml:59-62
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(docker_scan).steps[3](Trivy image - BLOQUANT sur CRITICAL)
+	File: /workflows/devsecops.yml:61-72
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(docker_scan).steps[4]
+	File: /workflows/devsecops.yml:71-78
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(sast).steps[1]
+	File: /workflows/devsecops.yml:81-83
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(sast).steps[2](Semgrep OWASP Top 10)
+	File: /workflows/devsecops.yml:82-89
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(sast).steps[3]
+	File: /workflows/devsecops.yml:88-95
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(iac_checkov).steps[1]
+	File: /workflows/devsecops.yml:98-100
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(iac_checkov).steps[2](Checkov - Dockerfile de l'application (non bloquant))
+	File: /workflows/devsecops.yml:99-108
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(iac_checkov).steps[3](Checkov - workflows GitHub Actions du projet (non bloquant))
+	File: /workflows/devsecops.yml:107-116
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(iac_checkov).steps[4]
+	File: /workflows/devsecops.yml:115-122
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(tests).steps[1]
+	File: /workflows/devsecops.yml:125-127
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(tests).steps[2](Demarrer l'application)
+	File: /workflows/devsecops.yml:126-134
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(tests).steps[3](Tests de fumee)
+	File: /workflows/devsecops.yml:133-146
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(tests).steps[4](Logs de l'application si echec)
+	File: /workflows/devsecops.yml:145-149
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(tests).steps[5]
+	File: /workflows/devsecops.yml:148-155
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(dast).steps[1]
+	File: /workflows/devsecops.yml:158-160
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(dast).steps[2](Lancer Juice Shop (staging))
+	File: /workflows/devsecops.yml:159-167
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(dast).steps[3](ZAP baseline scan)
+	File: /workflows/devsecops.yml:166-174
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(dast).steps[4]
+	File: /workflows/devsecops.yml:173-180
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(deploy).steps[1](Connexion au registre GHCR)
+	File: /workflows/devsecops.yml:188-194
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(deploy).steps[2](Publier l'image validee)
+	File: /workflows/devsecops.yml:193-205
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(deploy).steps[3](Deployer en staging et verifier)
+	File: /workflows/devsecops.yml:204-216
+Check: CKV_GHA_1: "Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables"
+	PASSED for resource: jobs(notify).steps[1](Notification Discord)
+	File: /workflows/devsecops.yml:221-257
+Check: CKV2_GHA_1: "Ensure top-level permissions are not set to write-all"
+	PASSED for resource: on(DevSecOps Pipeline)
+	File: /workflows/devsecops.yml:9-12

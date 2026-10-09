@@ -1,0 +1,6 @@
+Page d'accueil :
+200
+Version de l'application :
+{"version":"20.2.0"}
+API des challenges :
+200
